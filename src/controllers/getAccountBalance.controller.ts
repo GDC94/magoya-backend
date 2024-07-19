@@ -11,7 +11,7 @@ export type AccountType = z.infer<
   typeof schemaAccount
 >;
 
-// Simulando una base de datos con un objeto en memoria
+
 const accountsDB: { [key: string]: AccountType } =
   {
     account_1: {

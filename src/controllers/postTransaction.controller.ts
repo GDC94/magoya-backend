@@ -1,4 +1,3 @@
-import { transactionZodSchema } from "../schemas/transaction.schema";
 import { Request, Response } from "express";
 
 
@@ -7,10 +6,10 @@ interface Account {
   name: string;
   initialBalance: number;
 }
-// Simulando una base de datos con un objeto en memoria
+
 const accountsDB: { [key: string]: Account } = {
   account_1: { id: "account_1", name: "John", initialBalance: 1000 },
-  // Add more dummy accounts if needed
+
 };
 
 export const postTransaction = (req: Request, res: Response) => {
