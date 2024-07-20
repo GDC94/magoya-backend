@@ -43,3 +43,22 @@ INSERT INTO transactions (accountNumber, type, amount) VALUES
   ('1134', 'deposito', 1000),
   ('1135', 'transferencia', 10000),
   ('1434', 'deposito', 1400);
+
+
+
+
+
+  postgres=#  psql -U postgres
+postgres-#  \c transactions
+
+
+
+
+http://localhost:8080/api/transactions
+
+
+{
+  "accountNumber": "1000",
+  "type": "transferencia",
+  "amount": 100
+}
