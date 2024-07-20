@@ -28,3 +28,18 @@ INSERT INTO accounts (name, account_number, balance) VALUES
   ('Charlie', '1111', 3000);
 
 SELECT * FROM accounts;
+
+
+
+CREATE TABLE transactions (
+  id SERIAL PRIMARY KEY,
+  accountNumber VARCHAR(255) NOT NULL,
+  type VARCHAR(50) CHECK (type IN ('deposito', 'transferencia')) NOT NULL,
+  amount DECIMAL(10, 2) NOT NULL,
+  transactionDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO transactions (accountNumber, type, amount) VALUES
+  ('1134', 'deposito', 1000),
+  ('1135', 'transferencia', 10000),
+  ('1434', 'deposito', 1400);
