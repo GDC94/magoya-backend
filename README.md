@@ -1,15 +1,18 @@
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 # Magoya Backend
-
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 Backend construido con Express, Typescript, zod, Node y Postgres
 
-## Prerequisites
+# Pre requisitos
 
 - [Node.js](https://nodejs.org/) (v16 or later)
 - [PostgreSQL](https://www.postgresql.org/) (v13 or later)
+- [npm](https://www.postgresql.org/) (v13 or later)
 
-## Instalacion
+# Instalacion
 
-1. Clonar el repositorio
 
    ```bash
    git clone https://github.com/GDC94/magoya-backend.git
@@ -17,9 +20,13 @@ Backend construido con Express, Typescript, zod, Node y Postgres
 
    ```
 
-2. Install dependencies:
-
 # Configuración del Proyecto
+
+## Instalar dependencias 
+
+```json
+npm i
+```
 
 ## Variables de Entorno
 
@@ -45,7 +52,7 @@ DB_PASSWORD=mysecretpassword
 DB_NAME=mydatabase
 ```
 
-## Crear la DB
+# Crear la DB
 
 Crear base de datos:
 
@@ -77,6 +84,9 @@ CREATE TABLE transactions (
 ## Ejecutar NPM RUN DEV
 
 La aplicación debería estar corriendo en http://localhost:8080.
+
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 
 # API Endpoints
 
