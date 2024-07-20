@@ -1,4 +1,20 @@
 
+CREATE DATABASE bank_db;
+
+Connect to the database:
+ psql -U postgres
+
+ \c accounts
+ 
+
+
+Ver las tablas en la base de datos:
+\dt
+
+Ver detalles
+\d accounts
+
+
 CREATE TABLE accounts (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,

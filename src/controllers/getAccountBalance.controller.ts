@@ -1,37 +1,30 @@
 import { Request, Response } from "express";
-import { z } from "zod";
+import { pool } from "../db";
 
-export const schemaAccount = z.object({
-  id: z.string().min(1),
-  name: z.string().min(1),
-  initialBalance: z.number().min(1),
-});
-
-export type AccountType = z.infer<
-  typeof schemaAccount
->;
-
-
-const accountsDB: { [key: string]: AccountType } =
-  {
-    account_1: {
-      id: "account_1",
-      name: "John",
-      initialBalance: 1000,
-    },
-  };
-
-export const getAccountBalance = (
+export const getAccountBalance = async (
   req: Request,
   res: Response
 ) => {
   const { id } = req.params;
-  const account = accountsDB[id];
-  if (account) {
-    res.json({ balance: account.initialBalance });
-  } else {
+
+  try {
+    const result = await pool.query(
+      "SELECT balance FROM accounts WHERE id = $1",
+      [id]
+    );
+    const account = result.rows[0];
+
+    if (account) {
+      res.json({ balance: account.balance });
+    } else {
+      res
+        .status(404)
+        .json({ message: "Account not found" });
+    }
+  } catch (error) {
+    console.error(error);
     res
-      .status(404)
-      .json({ message: "Account not found" });
+      .status(500)
+      .json({ message: "Internal server error" });
   }
 };
